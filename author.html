@@ -1,39 +1,52 @@
 <!DOCTYPE html>
-<html>
- 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Author's Entry</title>
+</head>
 <body>
+    <header>
+        <h1>Author Entry - Vinay Marella</h1>
+    </header>
 
-<h2>Author's Entry-Vinay Marella</h2>
+    <form id="authorForm">
+        <label for="hiddenAuthor">The hidden author name:</label>
+        <input type="password" id="hiddenAuthor" name="hiddenAuthor" value="Dickens" required>
 
-<form>
-    <label for="form1_age">What is your age </label>
-    <input type ="number" id="form1_age" name="form1_age" min=10 max=50 step=2 value=30> <br>
+        <label for="guessAuthor">Guess the author:</label>
+        <input type="text" id="guessAuthor" name="guessAuthor" required>
 
-    <label for="form1_nick">What is your nickname </label>
-    <input type ="text" id="form1_nick" name="form1_nick" autofocus> <br>
+        <button type="button" onclick="checkAuthor()">Check the guess</button>
+    </form>
 
-    <input type="button" onclick="resolveForm()" value="Get values from form">
-</form>
+    <p>Results: <span id="results"></span></p>
 
+    <script>
+        // Global variables
+        var good = 0;
+        var oops = 0;
 
-<p id="result">This text will be replaced </p>
+        // Function to check the author guess
+        function checkAuthor() {
+            // Get values from input elements
+            var hiddenAuthorValue = document.getElementById("hiddenAuthor").value;
+            var guessAuthorValue = document.getElementById("guessAuthor").value;
 
-<script> 
+            // Compare values
+            if (hiddenAuthorValue === guessAuthorValue) {
+                good++;
+                alert("You got it right!");
+            } else {
+                oops++;
+                alert("Sorry!");
+            }
 
-function resolveForm (){
-    console.log("Getting form values")
-    age = document.getElementById("form1_age").value
-    nick = document.getElementById("form1_nick").value
-    confirmed = confirm("Are these the values? "+age+" and "+nick)
-    
-    out = document.getElementById("result")
-    if(confirmed){
-        out.innerHTML = "Values were confirmed"
-    } else {
-        out.innerHTML = "Values were not confirmed"
-    }
-}
-</script>
+            // Update the results display
+            var resultsElement = document.getElementById("results");
+            resultsElement.innerHTML = `Correct guesses: ${good} | Incorrect guesses: ${oops}`;
+        }
+    </script>
 
 </body>
-</html> 
+</html>
