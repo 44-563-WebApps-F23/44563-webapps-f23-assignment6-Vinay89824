@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <title>Author's Entry</title>
 </head>
 <body>
@@ -44,7 +45,7 @@
 
             // Update the results display
             var resultsElement = document.getElementById("results");
-            resultsElement.innerHTML = `Correct: ${good} | Oops: ${oops}`;
+            resultsElement.innerHTML = `Correct guesses: ${good} | Incorrect guesses: ${oops}`;
         }
     </script>
 <div>
@@ -54,11 +55,11 @@
         function selectimage(){
             switch(useImage){
                 case 1:
-                  document.getElementById('image').src="Atlanta.jpg"; 
+                  document.getElementById('image').src="italy.jpeg"; 
                   useImage=2;
                   break;
                 case 2:
-                    document.getElementById('image').src="edinburgh.jpg";
+                    document.getElementById('image').src="norway.jpeg";
                     useImage=3;
                     break;
                 case 3:
