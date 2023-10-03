@@ -44,7 +44,7 @@
 
             // Update the results display
             var resultsElement = document.getElementById("results");
-            resultsElement.innerHTML = `Correct guesses: ${good} | Incorrect guesses: ${oops}`;
+            resultsElement.innerHTML = `Correct: ${good} | Oops: ${oops}`;
         }
     </script>
 <div>
@@ -54,11 +54,11 @@
         function selectimage(){
             switch(useImage){
                 case 1:
-                  document.getElementById('image').src="italy.jpeg"; 
+                  document.getElementById('image').src="Atlanta.jpg"; 
                   useImage=2;
                   break;
                 case 2:
-                    document.getElementById('image').src="norway.jpeg";
+                    document.getElementById('image').src="edinburgh.jpg";
                     useImage=3;
                     break;
                 case 3:
