@@ -47,6 +47,27 @@
             resultsElement.innerHTML = `Correct guesses: ${good} | Incorrect guesses: ${oops}`;
         }
     </script>
-
+<div>
+    <img id="image" width="100" height="100" src="vietnam.jpeg" onclick="selectimage()">
+    <script>
+        var useImage=1;
+        function selectimage(){
+            switch(useImage){
+                case 1:
+                  document.getElementById('image').src="italy.jpeg"; 
+                  useImage=2;
+                  break;
+                case 2:
+                    document.getElementById('image').src="norway.jpeg";
+                    useImage=3;
+                    break;
+                case 3:
+                    document.getElementById('image').src="vietnam.jpeg";
+                    useimage=1;
+                    break;
+            }
+        }
+    </script>
+</div>
 </body>
 </html>
