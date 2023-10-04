@@ -1,39 +1,57 @@
 <!DOCTYPE html>
 <html>
- 
+ <title>Cruise</title>
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
 <body>
 
-<h2>Getting input</h2>
+<h2>Vinay goes on a cruise</h2>
 
 <form>
-    <label for="form1_age">What is your age </label>
-    <input type ="number" id="form1_age" name="form1_age" min=10 max=50 step=2 value=30> <br>
+    <input type="checkbox" id="shared" name="shared" value="True">
+    <label for="cb1_cheese">Shares Cabin</label></br>
+  
+    <input type="checkbox" id="breakfast" name="breakfast" value="True">
+    <label for="cb1_olive">Breakfast</label></br>
+  
+    <input type="checkbox" id="pool" name="pool" value="False">
+    <label for="cb1_onion">Pool Pass</label></br>
 
-    <label for="form1_nick">What is your nickname </label>
-    <input type ="text" id="form1_nick" name="form1_nick" autofocus> <br>
-
-    <input type="button" onclick="resolveForm()" value="Get values from form">
-</form>
-
-
-<p id="result">This text will be replaced </p>
+    <input type="button" onclick="SelectCruise()" value="Select a cruise">
+  </form>
+  
+<p id="result"> </p>
 
 <script> 
-
-function resolveForm (){
-    console.log("Getting form values")
-    age = document.getElementById("form1_age").value
-    nick = document.getElementById("form1_nick").value
-    confirmed = confirm("Are these the values? "+age+" and "+nick)
-    
-    out = document.getElementById("result")
-    if(confirmed){
-        out.innerHTML = "Values were confirmed"
-    } else {
-        out.innerHTML = "Values were not confirmed"
-    }
+ var my_cruise={};
+function SelectCruise(){
+my_cruise = {};
+my_cruise.shared = document.getElementById('shared').checked;
+my_cruise.breakfast = document.getElementById('breakfast').checked;
+my_cruise.pool = document.getElementById('pool').checked;
+document.getElementById('result').innerHTML = "The values are "+my_cruise.shared+" and "+my_cruise.breakfast+" and "+my_cruise.pool;
 }
 </script>
 
+<form>
+    <label for="days">Enter the number of days</label>
+    <input type="text" id="days" value="DAYS" class="form-control mb-2"><br>
+
+    <label for="price">Enter price</label>
+    <input type="text" id="price" value="PRICE" class="form-control mb-2"><br>
+
+    <input type="button" onclick="updateCruise()" value="Update Cruise">
+</form>
+<script>
+     my_cruise={};
+    function updateCruise(){
+        var days=document.getElementById('days').value;
+        var price=document.getElementById('price').value;
+         my_cruise['days']=days;
+         my_cruise['price']=price;
+        document.getElementById('result1').innerHTML = "The number of days are "+days+" and price is "+price
+    }
+</script>
+<p id="result1"> </p>
 </body>
 </html> 
