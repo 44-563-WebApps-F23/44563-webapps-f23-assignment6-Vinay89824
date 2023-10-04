@@ -42,8 +42,15 @@
                 oops++;
                 alert("Sorry!");
             }
+            if(oops==8){
+            document.getElementById('guess1').disabled = true;
+            document.querySelector('button').onclick = function() {
+                alert('Sorry, ran out of guesses.');
+                
+        }
+    }
 
-            // Update the results display
+            
             var resultsElement = document.getElementById("results");
             resultsElement.innerHTML = `Good: ${good} | Oops: ${oops}`;
         }
@@ -69,36 +76,5 @@
             }
         }
     </script>
-</div>
-<div id="incorrectGuesses" class="alert alert-danger" style="display:none;"></div>
-<script>
-    var incorrectGuessCount = 0;
-
-
-function checkAuthor() {
-    // ... existing code
-
-    // If the guess is incorrect
-    if (/* your condition for incorrect guess */) {
-        incorrectGuessCount++;
-        document.getElementById('incorrectGuesses').innerText = 'Incorrect Guesses: ' + incorrectGuessCount;
-
-        // Show the div
-        document.getElementById('incorrectGuesses').style.display = 'block';
-
-        // Check if the limit is reached
-        if (incorrectGuessCount >= 7) {
-            // Replace the onclick property with a new function
-            document.getElementById('yourButtonId').onclick = function() {
-                alert('Sorry, ran out of guesses.');
-            };
-        }
-    }
-}
-
-<button id="yourButtonId" class="btn btn-primary">Check the Guess</button>
-<div id="incorrectGuesses" class="alert alert-danger" style="display:none;"></div>
-</script>
-
 </body>
 </html>
