@@ -66,6 +66,21 @@
                     document.getElementById('image').src="vietnam.jpeg";
                     useimage=1;
                     break;
+                    <div id="incorrectGuesses"></div>
+                    var incorrectGuessCount = 0;
+                    function checkAuthor() {
+    if (/* your condition for incorrect guess */) {
+        incorrectGuessCount++;
+        document.getElementById('incorrectGuesses').innerText = 'Incorrect Guesses: ' + incorrectGuessCount;
+        if (incorrectGuessCount >= 7) {
+            document.getElementById('yourButtonId').onclick = function() {
+                alert('Sorry, ran out of guesses.');
+            };
+        }
+    }
+}
+<div id="incorrectGuesses" class="alert alert-danger"></div>
+
             }
         }
     </script>
