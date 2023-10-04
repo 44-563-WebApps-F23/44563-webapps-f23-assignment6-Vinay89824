@@ -66,12 +66,39 @@
                     document.getElementById('image').src="vietnam.jpeg";
                     useimage=1;
                     break;
-                    <div id="incorrectGuesses"></div>
-                    var incorrectGuessCount = 0;
-
             }
         }
     </script>
 </div>
+<div id="incorrectGuesses" class="alert alert-danger" style="display:none;"></div>
+<script>
+    var incorrectGuessCount = 0;
+
+
+function checkAuthor() {
+    // ... existing code
+
+    // If the guess is incorrect
+    if (/* your condition for incorrect guess */) {
+        incorrectGuessCount++;
+        document.getElementById('incorrectGuesses').innerText = 'Incorrect Guesses: ' + incorrectGuessCount;
+
+        // Show the div
+        document.getElementById('incorrectGuesses').style.display = 'block';
+
+        // Check if the limit is reached
+        if (incorrectGuessCount >= 7) {
+            // Replace the onclick property with a new function
+            document.getElementById('yourButtonId').onclick = function() {
+                alert('Sorry, ran out of guesses.');
+            };
+        }
+    }
+}
+
+<button id="yourButtonId" class="btn btn-primary">Check the Guess</button>
+<div id="incorrectGuesses" class="alert alert-danger" style="display:none;"></div>
+</script>
+
 </body>
 </html>
