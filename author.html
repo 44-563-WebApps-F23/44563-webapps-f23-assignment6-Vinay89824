@@ -11,23 +11,19 @@
         <h1>Author Entry - Vinay Marella</h1>
     </header>
 
-    <form id="authorForm">
-        <label for="hiddenAuthor">The hidden author name:</label>
-        <input type="password" id="hiddenAuthor" name="hiddenAuthor" value="Dickens" required>
-
-        <label for="guessAuthor">Guess the author:</label>
-        <input type="text" id="guessAuthor" name="guessAuthor" required>
-
-        <button type="button" onclick="checkAuthor()">Check the guess</button>
+    <form>
+        <label for="id">The hidden author name </label>
+        <input type ="password" id="id" name="id" min=10 max=50 step=2 value="Dickens" class="form-control mb-2"> <br>
+    
+        <label for="id1">Guess the author</label>
+        <input type ="text" id="id1" name="id1" autofocus class="form-control mb-2"> <br>
+    
+        <input type="button" id="guess1" onclick="checkAuthor()" value="Check the guess">
+    
+        <p>Good Count: <span id="good_count">0</span></p>
+        <p>Oops Count: <span id="oops_count">0</span></p>
     </form>
-
-    <p>Results: <span id="results"></span></p>
-
-    <script>
-        // Global variables
-        var good = 0;
-        var oops = 0;
-
+    <p id="result"> </p>
         function checkAuthor (){
     console.log("Checking Author names")
     hiddenAuthorname = document.getElementById("id").value
