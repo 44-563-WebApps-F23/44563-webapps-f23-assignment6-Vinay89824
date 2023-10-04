@@ -28,32 +28,29 @@
         var good = 0;
         var oops = 0;
 
-        // Function to check the author guess
-        function checkAuthor() {
-            // Get values from input elements
-            var hiddenAuthorValue = document.getElementById("hiddenAuthor").value;
-            var guessAuthorValue = document.getElementById("guessAuthor").value;
-
-            // Compare values
-            if (hiddenAuthorValue === guessAuthorValue) {
-                good++;
-                alert("You got it right!");
-            } else {
-                oops++;
-                alert("Sorry!");
-            }
-            if(oops==8){
+        function checkAuthor (){
+    console.log("Checking Author names")
+    hiddenAuthorname = document.getElementById("id").value
+    guessedname = document.getElementById("id1").value
+    
+    out = document.getElementById("result")
+    if(hiddenAuthorname==guessedname){
+       good++;
+       alert("you got it right");
+    } else {
+        oops++;
+        alert("sorry");
+    }
+        if(oops==8){
             document.getElementById('guess1').disabled = true;
             document.querySelector('button').onclick = function() {
                 alert('Sorry, ran out of guesses.');
                 
         }
     }
-
-            
-            var resultsElement = document.getElementById("results");
-            resultsElement.innerHTML = `Good: ${good} | Oops: ${oops}`;
-        }
+    document.getElementById('good_count').innerHTML = good;
+    document.getElementById('oops_count').innerHTML = oops;
+}
     </script>
 <div>
     <img id="image" width="100" height="100" src="vietnam.jpeg" onclick="selectimage()">
