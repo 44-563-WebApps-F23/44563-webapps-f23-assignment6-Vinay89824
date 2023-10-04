@@ -45,7 +45,7 @@
 
             // Update the results display
             var resultsElement = document.getElementById("results");
-            resultsElement.innerHTML = `Correct guesses: ${good} | Incorrect guesses: ${oops}`;
+            resultsElement.innerHTML = `Good: ${good} | Oops: ${oops}`;
         }
     </script>
 <div>
@@ -66,13 +66,25 @@
                     document.getElementById('image').src="vietnam.jpeg";
                     useimage=1;
                     break;
-                    <div id="incorrectGuesses"></div>
-                    var incorrectGuessCount = 0;
-                    function checkAuthor() {
+                    
+            }
+        }
+        <div id="incorrectGuesses" class="alert alert-danger" style="display:none;"></div>
+        var incorrectGuessCount = 0;
+        function checkAuthor() {
+    // ... existing code
+
+    // If the guess is incorrect
     if (/* your condition for incorrect guess */) {
         incorrectGuessCount++;
         document.getElementById('incorrectGuesses').innerText = 'Incorrect Guesses: ' + incorrectGuessCount;
+
+        // Show the div
+        document.getElementById('incorrectGuesses').style.display = 'block';
+
+        // Check if the limit is reached
         if (incorrectGuessCount >= 7) {
+            // Replace the onclick property with a new function
             document.getElementById('yourButtonId').onclick = function() {
                 alert('Sorry, ran out of guesses.');
             };
@@ -80,10 +92,9 @@
     }
 }
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<div id="incorrectGuesses" class="alert alert-danger"></div>
+<button id="yourButtonId" class="btn btn-primary">Check the Guess</button>
+<div id="incorrectGuesses" class="alert alert-danger" style="display:none;"></div>
 
-            }
-        }
     </script>
 </div>
 </body>
