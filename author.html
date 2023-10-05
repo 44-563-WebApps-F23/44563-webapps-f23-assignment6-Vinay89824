@@ -1,79 +1,79 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>   
-     <title>Author</title>
-     <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-
+    <title>Author</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head> 
 <body>
-    <h1 class="mt-5">Author entry : Vinay Marella</h1>
-    <h2 class="mt-3">Getting input</h2>
+    <h1 class="mt-5">Author entry: Vinay Marella</h1>
 
-<form>
-    <label for="id">The hidden author name </label>
-    <input type ="password" id="id" name="id" min=10 max=50 step=2 value="Dickens" class="form-control mb-2"> <br>
+    <form>
+        <label for="id">The hidden author name </label>
+        <input type="password" id="id" name="id" min=10 max=50 step=2 value="Dickens" class="form-control mb-2"> <br>
 
-    <label for="id1">Guess the author</label>
-    <input type ="text" id="id1" name="id1" autofocus class="form-control mb-2"> <br>
+        <label for="id1">Guess the author</label>
+        <input type="text" id="id1" name="id1" autofocus class="form-control mb-2"> <br>
 
-    <input type="button" id="guess1" onclick="checkAuthor()" value="Check the guess">
+        <input type="button" id="guess1" onclick="checkAuthor()" value="Check the guess">
 
-    <p>Good Count: <span id="good_count">0</span></p>
-    <p>Oops Count: <span id="oops_count">0</span></p>
-</form>
-<p id="result"> </p>
-<script> 
-let good=0;
-let oops=0;
-function checkAuthor (){
-    console.log("Checking Author names")
-    hiddenAuthorname = document.getElementById("id").value
-    guessedname = document.getElementById("id1").value
-    
-    out = document.getElementById("result")
-    if(hiddenAuthorname==guessedname){
-       good++;
-       alert("you got it right");
-    } else {
-        oops++;
-        alert("sorry");
-    }
-    if (incorrectGuessCount >= 7) {
-                    document.querySelector('button').onclick = function() {
-                        alert("Sorry, ran out of guesses.");
-                    };
+        <p>Good Count: <span id="good_count">0</span></p>
+        <p>Oops Count: <span id="oops_count">0</span></p>
+    </form>
+
+    <p id="result"> </p>
+
+    <script> 
+        let good = 0;
+        let oops = 0;
+
+        function checkAuthor() {
+            console.log("Checking Author names");
+            let hiddenAuthorname = document.getElementById("id").value;
+            let guessedname = document.getElementById("id1").value;
+            let out = document.getElementById("result");
+
+            if (hiddenAuthorname === guessedname) {
+                good++;
+                alert("You got it right");
+            } else {
+                oops++;
+                alert("Sorry");
+            }
+
+            if (oops === 8) {
+                document.getElementById('guess1').disabled = true;
+                alert('Sorry, ran out of guesses.');
+            }
+
+            document.getElementById('good_count').innerHTML = good;
+            document.getElementById('oops_count').innerHTML = oops;
+        }
+    </script>
+
+    <div>
+        <img id="image" width="100" height="100" src="vietnam.jpeg" onclick="selectimage()">
+        <script>
+            var useImage = 1;
+
+            function selectimage() {
+                switch (useImage) {
+                    case 1:
+                        document.getElementById('image').src = "italy.jpeg"; 
+                        useImage = 2;
+                        break;
+                    case 2:
+                        document.getElementById('image').src = "norway.jpeg";
+                        useImage = 3;
+                        break;
+                    case 3:
+                        document.getElementById('image').src = "vietnam.jpeg";
+                        useImage = 1;
+                        break;
                 }
             }
-        }
-    </script>
-        }
-    }
-    document.getElementById('good_count').innerHTML = good;
-    document.getElementById('oops_count').innerHTML = oops;
-}
-    </script>
-<div>
-    <img id="image" width="100" height="100" src="vietnam.jpeg" onclick="selectimage()">
-    <script>
-        var useImage=1;
-        function selectimage(){
-            switch(useImage){
-                case 1:
-                  document.getElementById('image').src="italy.jpeg"; 
-                  useImage=2;
-                  break;
-                case 2:
-                    document.getElementById('image').src="norway.jpeg";
-                    useImage=3;
-                    break;
-                case 3:
-                    document.getElementById('image').src="vietnam.jpeg";
-                    useimage=1;
-                    break;
-            }
-        }
-    </script>
+        </script>
+    </div>
 </body>
 </html>
